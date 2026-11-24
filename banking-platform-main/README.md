@@ -1,300 +1,135 @@
-# 🏦 Banking Platform
+# Banking Management System
 
-> **Project Status:** 🟢 Active Development
+A backend banking application built using **Java and Spring Boot** that provides RESTful APIs for managing bank accounts and performing essential banking operations.
 
-A production-ready Banking Backend developed using **Java 17**, **Spring Boot**, **Spring Security (JWT)**, **PostgreSQL**, and **Docker**.
+## 🚀 Features
 
-This project demonstrates modern backend development practices by implementing secure REST APIs, layered architecture, JWT-based authentication, database persistence, OpenAPI documentation, Docker containerization, and environment-specific configuration using Spring Profiles.
+- **Account Management:** Create, retrieve, update, and manage bank accounts.
+- **RESTful APIs:** Provides HTTP endpoints for banking operations.
+- **Transaction Management:** Supports banking transaction operations (as implemented).
+- **API Documentation:** Interactive API documentation using Swagger UI.
+- **Database Integration:** Persistent storage for banking data.
+- **Exception Handling:** Handles application errors and invalid requests.
 
-The project is being continuously enhanced and will gradually evolve into a complete Microservices-based Banking Platform with Redis, Kafka, API Gateway, Kubernetes, and CI/CD.
+## 🛠️ Technologies Used
 
----
+- **Java**
+- **Spring Boot**
+- **Spring Data JPA**
+- **Hibernate**
+- **Maven**
+- **PostgreSQL**
+- **Swagger / OpenAPI**
+- **REST APIs**
 
-# 🎯 Project Goal
+## 📂 Project Structure
 
-The primary objective of this project is to build a production-oriented backend application while following industry-standard development practices.
-
-Instead of creating a simple CRUD application, this project focuses on:
-
-- Secure Authentication & Authorization
-- Clean Layered Architecture
-- REST API Design
-- Containerization using Docker
-- Environment-based Configuration
-- Database Integration
-- API Documentation
-- Scalability & Future Migration to Microservices
-
----
-
-# ✨ Features
-
-- Secure JWT-based Authentication & Authorization
-- User Registration & Login APIs
-- Account Management
-- Transaction Management
-- Spring Security Integration
-- PostgreSQL Integration using Spring Data JPA
-- Layered Architecture
-- Global Exception Handling
-- Bean Validation
-- Swagger / OpenAPI Documentation
-- Dockerized Deployment
-- Multi-container Setup using Docker Compose
-- Spring Profiles for Environment-specific Configuration
-
----
-
-# 🛠 Tech Stack
-
-| Category | Technology | Version |
-|-----------|------------|---------|
-| Language | Java | 17 |
-| Framework | Spring Boot | 4.0.6 |
-| Security | Spring Security | 4.0.6 |
-| Authentication | JJWT | 0.12.7 |
-| Database | PostgreSQL | 17 |
-| ORM | Spring Data JPA | 4.0.6 |
-| API Documentation | SpringDoc OpenAPI | 3.0.2 |
-| Build Tool | Maven | 3.9.11 |
-| Containerization | Docker Engine | 29.6.1 |
-| Orchestration | Docker Compose | v2 Plugin |
-
----
-
-# 🏗 Architecture
-
-The application follows a layered architecture to ensure separation of concerns and maintainability.
-
-```
-                   Client
-                      │
-                      ▼
-              REST APIs (HTTP)
-                      │
-                      ▼
-       Spring Security (JWT Filter)
-                      │
-                      ▼
-               Controller Layer
-                      │
-                      ▼
-                Service Layer
-                      │
-                      ▼
-             Repository Layer
-                      │
-                      ▼
-                 PostgreSQL
+```text
+banking-platform/
+├── src/
+│   ├── main/
+│   │   ├── java/
+│   │   │   └── com/bank/
+│   │   │       ├── controller/
+│   │   │       ├── service/
+│   │   │       ├── repository/
+│   │   │       ├── entity/
+│   │   │       └── ...
+│   │   └── resources/
+│   │       └── application.properties
+│   └── test/
+├── pom.xml
+├── mvnw
+├── mvnw.cmd
+└── README.md
 ```
 
-📌 A detailed architecture diagram will be added under the **docs/** folder.
+## ⚙️ Prerequisites
 
----
-# 📷 Screenshots
+Make sure you have installed:
 
-## Swagger UI
+- JDK 17 or the Java version configured in the project
+- IntelliJ IDEA
+- Git
+- Maven (optional, if using Maven Wrapper)
+- Configured database
 
-![Swagger](screenshots/swagger-ui1.png)
-[Swagger](screenshots/swagger-ui2.png)
+## 💻 Installation and Setup
 
----
-
-## Docker Containers
-
-![Docker](screenshots/docker-containers.png)
-
----
-
-## Login API
-
-![Postman](screenshots/postman-register.png)
-
-# 📂 Project Structure
-
-```
-src
-├── controller
-├── service
-├── repository
-├── entity
-├── dto
-├── security
-├── config
-├── exception
-└── resources
-```
-
-### Folder Responsibilities
-
-| Folder | Responsibility |
-|----------|----------------|
-| controller | REST API Endpoints |
-| service | Business Logic |
-| repository | Database Operations |
-| entity | JPA Entity Classes |
-| dto | Request & Response Objects |
-| security | JWT Authentication & Authorization |
-| config | Spring Configuration |
-| exception | Global Exception Handling |
-| resources | Application Configuration |
-
----
-
-# 🚀 Running the Application Locally
-
-## Clone Repository
+**1. Clone the repository**
 
 ```bash
-git clone https://github.com/aftab-gits/banking-platform.git
+git clone https://github.com/YOUR_USERNAME/banking-platform.git
+```
 
+**2. Navigate to the project directory**
+
+```bash
 cd banking-platform
 ```
 
-## Build Project
+**3. Configure the database**
+
+Update the database connection details in:
+
+```text
+src/main/resources/application.properties
+```
+
+**4. Run the application**
+
+On Windows:
 
 ```bash
-mvn clean package
+.\mvnw.cmd spring-boot:run
 ```
 
-## Run Application
+On Linux/macOS:
 
 ```bash
-mvn spring-boot:run -Dspring-boot.run.profiles=local
+./mvnw spring-boot:run
 ```
 
----
+The application will start on:
 
-# 🐳 Running with Docker
-
-The project supports one-command deployment using Docker Compose.
-
-```bash
-docker compose up --build
+```text
+http://localhost:8080
 ```
 
-This automatically starts:
+## 📖 API Documentation
 
-- Banking Platform Application
-- PostgreSQL Database
-- Docker Network
+This project uses Swagger UI for interactive REST API documentation.
 
-using the **Docker Spring Profile**.
+After starting the application, access:
 
----
-
-# 📖 API Documentation
-
-Interactive API documentation is available after starting the application.
-
-```
-http://localhost:8080/swagger-ui.html
+```text
+http://localhost:8080/swagger-ui/index.html
 ```
 
----
+Swagger UI allows you to explore available endpoints and test API requests.
 
-# 🔐 Security
+## 🧪 API Testing
 
-The application uses **JWT (JSON Web Token)** based authentication.
-
-Authentication Flow:
-
-```
-User Login
-      │
-      ▼
-Authentication
-      │
-      ▼
-Generate JWT Token
-      │
-      ▼
-Client Stores Token
-      │
-      ▼
-Authorization Header
-      │
-      ▼
-JWT Filter
-      │
-      ▼
-Protected REST APIs
-```
-
----
-
-# 📷 Screenshots
-
-The following screenshots will be added soon:
+You can test the REST APIs using:
 
 - Swagger UI
-- Docker Compose Running
-- PostgreSQL Container
-- Postman API Responses
-- Project Architecture
+- Postman
+
+## 🎯 Learning Outcomes
+
+- Understanding Spring Boot application architecture.
+- Developing RESTful APIs using Java.
+- Implementing layered architecture.
+- Working with database integration using Spring Data JPA.
+- Understanding API documentation and testing.
+- Managing source code using Git and GitHub.
+
+## 👨‍💻 Author
+
+**Sai Ganesh Reddy**
+
+GitHub: [https://github.com/SaiGaneshReddy22/Banking-Management-System](https://github.com/SaiGaneshReddy22/Banking-Management-System)
 
 ---
 
-# 🚀 Future Roadmap
-
-## ✅ Completed
-
-- Spring Boot Monolithic Backend
-- JWT Authentication & Authorization
-- PostgreSQL Integration
-- Docker
-- Docker Compose
-- Spring Profiles
-- Swagger Documentation
-
-## 🔄 In Progress
-
-- Migration to Microservices Architecture
-
-## 📌 Planned
-
-- API Gateway
-- Eureka Service Discovery
-- OpenFeign
-- Redis Caching
-- Apache Kafka
-- Event-Driven Architecture
-- Resilience4j
-- Distributed Configuration
-- Kubernetes Deployment
-- GitHub Actions CI/CD Pipeline
-- AWS Deployment
-
----
-
-# 📚 Learning Outcomes
-
-This project demonstrates practical implementation of:
-
-- Java Backend Development
-- REST API Design
-- Spring Boot
-- Spring Security
-- JWT Authentication
-- Spring Data JPA
-- PostgreSQL
-- Docker
-- Docker Compose
-- Spring Profiles
-- Layered Architecture
-- Production-oriented Backend Development
-
----
-
-# 👨‍💻 Author
-
-**Aftab Ahmed**
-
-Java Backend Developer
-
-GitHub:
-https://github.com/aftab-gits
-
----
-
-## ⭐ If you found this project helpful, consider giving it a Star.
+⭐ If you find this project useful, feel free to star the repository!
